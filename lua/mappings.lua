@@ -4,6 +4,7 @@ local nomap = vim.keymap.del
 nomap("i", "<C-l>")
 nomap("n", "<C-c>")
 nomap("n", "<C-s>")
+nomap("n", "<C-n>")
 
 local map = vim.keymap.set
 
@@ -23,6 +24,8 @@ map("n", "<leader>gC", builtin.git_commits, { desc = "Search git commits" })
 map("n", "<leader>gc", builtin.git_bcommits, { desc = "Search git commits for buffer" })
 
 -- LSP
+map("n", "gI", "<cmd>:Telescope lsp_implementations<cr>", { desc = "Go to implementations" })
+map("n", "gR", "<cmd>:Telescope lsp_references<cr>", { desc = "Go to references" })
 map("n", "<leader>lj", function() vim.diagnostic.goto_next() end, { desc = "Next error" })
 map("n", "<leader>lk", function() vim.diagnostic.goto_prev() end, { desc = "Previous error" })
 map("n", "<leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP action" })
