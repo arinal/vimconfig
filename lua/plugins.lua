@@ -87,6 +87,29 @@ return {
   },
 
   {
+    "neovim/nvim-tree.lua",
+    config = function()
+      local on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
+        local function opts(desc)
+          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+        -- api.config.mappings.default_on_attach(bufnr)
+        local map = vim.keymap.set
+        map("n", "l", api.node.open.edit, opts "Open")
+        map("n", "h", api.node.navigate.parent_close, opts "Close Directory")
+        map("n", "L", api.node.open.toggle_group_empty, opts "Toggle Group Empty")
+      end
+      require("nvim-tree").setup {
+        on_attach = on_attach,
+        renderer = {
+          group_empty = true,
+        },
+      }
+    end,
+  },
+
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -141,7 +164,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("eyeliner").setup {
-        highlight_on_key = true,
+        highlight_on_key = false,
         dim = true,
       }
     end,
