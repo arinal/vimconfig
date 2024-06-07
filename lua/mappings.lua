@@ -46,3 +46,10 @@ end, { desc = "LSP signature help" })
 map("i", "<C-l>", function()
   vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
 end, { desc = "Copilot Accept", replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true })
+
+-- nvim-tree
+local api = require "nvim-tree.api"
+map("n", "<leader>e", api.tree.toggle, { desc = "Open file tree" })
+map("n", "<leader>E", function()
+  api.tree.toggle { find_file = true }
+end, { desc = "Reveal current file on tree" })

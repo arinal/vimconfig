@@ -94,7 +94,7 @@ return {
         local function opts(desc)
           return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
         end
-        -- api.config.mappings.default_on_attach(bufnr)
+        api.config.mappings.default_on_attach(bufnr)
         local map = vim.keymap.set
         map("n", "l", api.node.open.edit, opts "Open")
         map("n", "h", api.node.navigate.parent_close, opts "Close Directory")
