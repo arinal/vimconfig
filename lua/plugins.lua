@@ -87,7 +87,7 @@ return {
   },
 
   {
-    "neovim/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     config = function()
       local on_attach = function(bufnr)
         local api = require "nvim-tree.api"
