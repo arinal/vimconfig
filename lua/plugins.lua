@@ -13,6 +13,14 @@ return {
       presets = {
         lsp_doc_border = true,
       },
+      lsp = {
+        hover = {
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
+        },
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -150,6 +158,7 @@ return {
         "go",
         "javascript",
         "typescript",
+        "smithy",
         "json",
         "terraform",
         "markdown",
